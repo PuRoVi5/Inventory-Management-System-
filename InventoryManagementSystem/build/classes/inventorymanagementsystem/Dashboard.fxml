@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane stylesheets="@style.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1" fx:controller="inventorymanagementsystem.DashboardController">
+    <left>
+        <VBox spacing="10" styleClass="sidebar">
+            <Button onAction="#showDashboard" styleClass="nav-btn" text="Dashboard" />
+            <Button onAction="#showProducts" styleClass="nav-btn" text="Products" />
+            <Button onAction="#showCategories" styleClass="nav-btn" text="Categories" />
+            <Button onAction="#showSuppliers" styleClass="nav-btn" text="Suppliers" />
+            <Button onAction="#showStock" styleClass="nav-btn" text="Stock" />
+            <Button onAction="#showSales" styleClass="nav-btn" text="Sales" />
+            <Button onAction="#showReports" styleClass="nav-btn" text="Reports" />
+            <Button onAction="#showSettings" styleClass="nav-btn" text="Settings" />
+        </VBox>
+    </left>
+   <center>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="500.0" BorderPane.alignment="CENTER">
+         <children>
+              <Label fx:id="mainLabel" styleClass="title" text="Welcome to Dashboard!" />
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
