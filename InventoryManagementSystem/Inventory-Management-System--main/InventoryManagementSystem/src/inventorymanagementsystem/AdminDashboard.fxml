@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="450.0" prefWidth="652.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inventorymanagementsystem.AdminDashboardController">
+    <left>
+        <VBox alignment="TOP_CENTER" spacing="10" style="-fx-background-color: #1e2a38;" styleClass="sidebar">
+         <Label style="-fx-text-fill: white;" text="Dashboard" textFill="WHITE">
+            <styleClass>
+               <String fx:value="title" />
+               <String fx:value="dash" />
+            </styleClass>
+         </Label>
+            <Button fx:id="productBtn" onAction="#showProducts" styleClass="side-button" text="Products" />
+            <Button fx:id="customerBtn" onAction="#showCustomers" styleClass="side-button" text="Customers" />
+            <Button fx:id="ordersBtn" onAction="#showOrders" styleClass="side-button" text="Orders" />
+            <Button fx:id="logoutBtn" onAction="#Logout" styleClass="side-button" text="Logout" />
+        </VBox>
+    </left>
+   <center>
+      <VBox alignment="TOP_CENTER" prefHeight="450.0" prefWidth="500.0" BorderPane.alignment="CENTER">
+         <children>
+            <!-- Product Section -->
+            <VBox fx:id="productVBox" alignment="CENTER" managed="false" prefHeight="450.0" prefWidth="500.0" visible="false">
+               <children>
+                  <Label fx:id="productLabel" styleClass="title" text="Welcome to Products Dashboard!" />
+                  <VBox alignment="TOP_CENTER" prefHeight="170.0" prefWidth="500.0" spacing="10.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="15.0" prefWidth="500.0" spacing="15.0">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" prefWidth="80.0" text="Product type" />
+                              <TextField fx:id="tfproductType" prefHeight="23.0" prefWidth="200.0" promptText="Product type" />
+                           </children>
+                           <padding>
+                              <Insets top="0" right="35.0" bottom="0" left="0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="23.0" prefWidth="500.0" spacing="15.0">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" prefWidth="80.0" text="Product Name" />
+                              <TextField fx:id="tfproductName" prefHeight="23.0" prefWidth="200.0" promptText="Product Name" />
+                           </children>
+                           <padding>
+                              <Insets top="0" right="35.0" bottom="0" left="0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="19.0" prefWidth="500.0" spacing="15.0">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" prefWidth="80.0" text="Quantity" />
+                              <TextField fx:id="tfproductQty" prefHeight="23.0" prefWidth="200.0" promptText="Quantity" />
+                           </children>
+                           <padding>
+                              <Insets top="0" right="35.0" bottom="0" left="0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="19.0" prefWidth="500.0" spacing="15.0">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" prefWidth="80.0" text="Price" />
+                              <TextField fx:id="tfproductPrice" prefHeight="23.0" prefWidth="200.0" promptText="Price" />
+                           </children>
+                           <padding>
+                              <Insets top="0" right="35.0" bottom="0" left="0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="23.0" prefWidth="500.0" spacing="25.0">
+                           <children>
+                              <Button fx:id="productbtnAdd" mnemonicParsing="false" onAction="#productaddMethod" text="Add" />
+                              <Button fx:id="productbtnUpdate" mnemonicParsing="false" onAction="#productupdateMethod" text="Update" />
+                              <Button fx:id="productbtnDelete" mnemonicParsing="false" onAction="#productdeleteMethod" text="Delete" />
+                           </children>
+                           <padding>
+                              <Insets top="0" right="0" bottom="0" left="28.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <TableView fx:id="productTable" prefHeight="249.0" prefWidth="500.0">
+                    <columns>
+                      <TableColumn fx:id="colPtype" prefWidth="154.0" text="Product type" />
+                      <TableColumn fx:id="colPname" prefWidth="134.6" text="Product Name" />
+                      <TableColumn fx:id="colPQty" prefWidth="113.3" text="Quantity" />
+                      <TableColumn fx:id="colPPrice" prefWidth="97.3" text="Price" />
+                    </columns>
+                  </TableView>
+               </children>
+            </VBox>
+
+            <!-- Customer Section -->
+            <VBox fx:id="customerVBox" alignment="CENTER" managed="false" prefHeight="450.0" prefWidth="500.0" visible="false">
+               <children>
+                  <Label fx:id="customerLabel" styleClass="title" text="Welcome to Customers Dashboard!" />
+                  <VBox alignment="TOP_CENTER" prefHeight="170.0" prefWidth="500.0" spacing="10.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="15.0" prefWidth="500.0" spacing="15.0">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" prefWidth="80.0" text="Name" />
+                              <TextField fx:id="tfcustomerName" prefHeight="23.0" prefWidth="200.0" promptText="Name" />
+                           </children>
+                           <padding>
+                              <Insets top="0" right="35.0" bottom="0" left="0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="23.0" prefWidth="500.0" spacing="15.0">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" prefWidth="80.0" text="Address" />
+                              <TextField fx:id="tfcustomerAddress" prefHeight="23.0" prefWidth="200.0" promptText="Address" />
+                           </children>
+                           <padding>
+                              <Insets top="0" right="35.0" bottom="0" left="0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="19.0" prefWidth="500.0" spacing="15.0">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" prefWidth="80.0" text="Phone" />
+                              <TextField fx:id="tfcustomerPhone" prefHeight="23.0" prefWidth="200.0" promptText="Phone" />
+                           </children>
+                           <padding>
+                              <Insets top="0" right="35.0" bottom="0" left="0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="19.0" prefWidth="500.0" spacing="15.0">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" prefWidth="80.0" text="Email" />
+                              <TextField fx:id="tfcustomerEmail" prefHeight="23.0" prefWidth="200.0" promptText="Email" />
+                           </children>
+                           <padding>
+                              <Insets top="0" right="35.0" bottom="0" left="0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="23.0" prefWidth="500.0" spacing="25.0">
+                           <children>
+                              <Button fx:id="customerbtnAdd" mnemonicParsing="false" onAction="#customeraddMethod" text="Add" />
+                              <Button fx:id="customerbtnUpdate" mnemonicParsing="false" onAction="#customerupdateMethod" text="Update" />
+                              <Button fx:id="customerbtnDelete" mnemonicParsing="false" onAction="#customerdeleteMethod" text="Delete" />
+                           </children>
+                           <padding>
+                              <Insets top="0" right="0" bottom="0" left="28.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <TableView fx:id="productTable1" prefHeight="249.0" prefWidth="500.0">
+                     <columns>
+                        <TableColumn fx:id="colCname" prefWidth="154.0" text="Name" />
+                        <TableColumn fx:id="colCadd" prefWidth="134.6" text="Address" />
+                        <TableColumn fx:id="colCphone" prefWidth="113.3" text="Phone" />
+                        <TableColumn fx:id="colCemail" prefWidth="97.3" text="Email" />
+                     </columns>
+                  </TableView>
+               </children>
+            </VBox>
+
+            <!-- Order Section -->
+            <VBox fx:id="orderVBox" alignment="CENTER" managed="false" prefHeight="450.0" prefWidth="500.0" visible="false">
+               <children>
+                  <Label fx:id="orderLabel" styleClass="title" text="Welcome to Orders Dashboard!" />
+                  <VBox alignment="TOP_CENTER" prefHeight="170.0" prefWidth="500.0" spacing="10.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="15.0" prefWidth="500.0" spacing="15.0">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" prefWidth="80.0" text="Product type" />
+                              <TextField fx:id="tforderType" prefHeight="23.0" prefWidth="200.0" promptText="Product type" />
+                           </children>
+                           <padding>
+                              <Insets top="0" right="35.0" bottom="0" left="0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="23.0" prefWidth="500.0" spacing="15.0">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" prefWidth="80.0" text="Product Name" />
+                              <TextField fx:id="tforderName" prefHeight="23.0" prefWidth="200.0" promptText="Product Name" />
+                           </children>
+                           <padding>
+                              <Insets top="0" right="35.0" bottom="0" left="0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="19.0" prefWidth="500.0" spacing="15.0">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" prefWidth="80.0" text="Quantity" />
+                              <TextField fx:id="tforderQty" prefHeight="23.0" prefWidth="200.0" promptText="Quantity" />
+                           </children>
+                           <padding>
+                              <Insets top="0" right="35.0" bottom="0" left="0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="19.0" prefWidth="500.0" spacing="15.0">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" prefWidth="80.0" text="Price" />
+                              <TextField fx:id="tforderPrice" prefHeight="23.0" prefWidth="200.0" promptText="Price" />
+                           </children>
+                           <padding>
+                              <Insets top="0" right="35.0" bottom="0" left="0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="23.0" prefWidth="500.0" spacing="25.0">
+                           <children>
+                              <Button fx:id="orderAdd" mnemonicParsing="false" onAction="#orderaddMethod" text="Add" />
+                              <Button fx:id="orderbtnUpdate" mnemonicParsing="false" onAction="#orderupdateMethod" text="Update" />
+                              <Button fx:id="orderbtnDelete" mnemonicParsing="false" onAction="#orderdeleteMethod" text="Delete" />
+                           </children>
+                           <padding>
+                              <Insets top="0" right="0" bottom="0" left="28.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <TableView fx:id="productTable2" prefHeight="249.0" prefWidth="500.0">
+                     <columns>
+                        <TableColumn fx:id="colOtype" prefWidth="154.0" text="Product type" />
+                        <TableColumn fx:id="colOname" prefWidth="134.6" text="Product Name" />
+                        <TableColumn fx:id="colOQty" prefWidth="113.3" text="Quantity" />
+                        <TableColumn fx:id="colOPrice" prefWidth="97.3" text="Price" />
+                     </columns>
+                  </TableView>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

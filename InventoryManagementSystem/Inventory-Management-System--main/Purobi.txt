@@ -1,0 +1,17 @@
+mysql -h localhost -u root -p
+
+create database inventory_management_system;
+
+use inventory_management_system;
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    fullname VARCHAR(100) NOT NULL,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    contact VARCHAR(20),
+    password VARCHAR(100) NOT NULL,
+    role ENUM('admin', 'customer') DEFAULT 'customer'
+);
+
+INSERT INTO users (fullname, username, contact, password, role)
+VALUES ('Purobi', 'admin', '01973857729', '1234', 'admin');
